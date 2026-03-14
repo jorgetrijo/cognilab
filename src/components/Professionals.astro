@@ -1,0 +1,32 @@
+---
+import { professionals } from '../data/site';
+---
+
+<section class="section section--alt" id="profesionales">
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <p class="eyebrow">Equipo</p>
+      <h2>Profesionales del centro</h2>
+      <p class="section-description">
+        Un equipo interdisciplinario que acompaña cada proceso con cercanía,
+        compromiso y una mirada integral.
+      </p>
+    </div>
+
+    <div class="profile-grid">
+      {professionals.map((professional) => (
+        <article class="profile-card">
+          <div class="profile-image-wrap">
+            <img src={professional.image} alt={professional.name} loading="lazy" />
+          </div>
+
+          <div class="profile-content">
+            <p class="role">{professional.role}</p>
+            <h3>{professional.name}</h3>
+            <p class="profile-bio">{professional.bio}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

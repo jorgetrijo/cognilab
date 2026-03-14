@@ -1,0 +1,27 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <img class="footer-logo" src="/logos/logo-icon.png" alt={siteConfig.name} />
+      <p>{siteConfig.description}</p>
+    </div>
+
+    <div>
+      <h3>Contacto</h3>
+      <ul class="footer-list">
+        <li><a href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a></li>
+        <li><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
+        <li><a href={siteConfig.maps} target="_blank" rel="noreferrer">{siteConfig.address}</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Horarios</h3>
+      <p>{siteConfig.hours}</p>
+      <a href={siteConfig.instagram} target="_blank" rel="noreferrer">Instagram</a>
+    </div>
+  </div>
+</footer>

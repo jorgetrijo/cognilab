@@ -1,0 +1,18 @@
+---
+import { gallery } from '../data/site';
+---
+
+<section class="section" id="espacio">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">El espacio</p>
+      <h2>Un entorno cálido, sereno y pensado para acompañar</h2>
+    </div>
+
+    <div class="gallery-grid">
+      {gallery.map((image, index) => (
+        <img src={image} alt={`Foto del centro ${index + 1}`} loading="lazy" />
+      ))}
+    </div>
+  </div>
+</section>

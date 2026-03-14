@@ -1,0 +1,23 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<section id="inicio" class="hero section">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="hero-badge">{siteConfig.tagline}</span>
+
+      <h1>{siteConfig.name}</h1>
+      <p class="hero-description">{siteConfig.description}</p>
+
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">Contactanos</a>
+        <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <img src="/images/hero-espacio.jpg" alt="Espacio del centro" />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<section class="section" id="contacto">
+  <div class="container contact-grid">
+    <div>
+      <p class="eyebrow">Contacto</p>
+      <h2>Estamos para orientarte</h2>
+      <p>
+        Podés escribirnos para consultas, disponibilidad de turnos o más información sobre el centro.
+      </p>
+
+      <ul class="contact-list">
+        <li><strong>WhatsApp:</strong> <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noreferrer">Enviar mensaje</a></li>
+        <li><strong>Correo:</strong> <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
+        <li><strong>Teléfono:</strong> <a href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a></li>
+        <li><strong>Dirección:</strong> <a href={siteConfig.maps} target="_blank" rel="noreferrer">{siteConfig.address}</a></li>
+      </ul>
+    </div>
+
+    <form class="contact-card" name="contacto" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contacto" />
+      <label>
+        Nombre
+        <input type="text" name="nombre" placeholder="Tu nombre" />
+      </label>
+      <label>
+        Correo
+        <input type="email" name="email" placeholder="tuemail@ejemplo.com" />
+      </label>
+      <label>
+        Mensaje
+        <textarea name="mensaje" rows="5" placeholder="Contanos tu consulta"></textarea>
+      </label>
+      <button class="button" type="submit">Enviar consulta</button>
+    </form>
+  </div>
+</section>
