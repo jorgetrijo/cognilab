@@ -1,0 +1,262 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { services, siteConfig } from '../data/site';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const accentColors = [
+  'var(--color-primary)',
+  'var(--color-secondary-strong)',
+  'var(--color-green)'
+];
+---
+
+<MainLayout
+  title={`Servicios | ${siteConfig.name}`}
+  description="Conocé en detalle los servicios de psicología, psicopedagogía y orientación familiar que ofrece CogniLab."
+>
+  <Header />
+
+  <main>
+    <section class="page-hero section">
+      <div class="container">
+        <p class="eyebrow">Servicios</p>
+        <h1>Acompañamiento profesional<br />según cada necesidad</h1>
+        <p class="page-hero-description">
+          En CogniLab trabajamos desde un enfoque integrador, personalizado y cercano.
+          Conocé cada uno de nuestros servicios y encontrá el espacio que mejor se adapta a vos.
+        </p>
+      </div>
+    </section>
+
+    <section class="services-detail section">
+      <div class="container">
+        {services.map((service, i) => (
+          <article class="service-item" style={`--accent: ${accentColors[i % accentColors.length]}`}>
+            <div class="service-item-header">
+              <div class="service-accent-bar"></div>
+              <h2>{service.title}</h2>
+            </div>
+
+            <div class="service-item-body">
+              <div class="service-text">
+                <p class="service-lead">{service.description}</p>
+                <p>{service.details}</p>
+              </div>
+
+              <div class="service-for-whom">
+                <p class="for-whom-label">¿Para quién?</p>
+                <ul>
+                  {service.forWhom.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta-section section section--alt">
+      <div class="container narrow">
+        <div class="cta-card">
+          <p class="eyebrow">¿Tenés dudas?</p>
+          <h2>Hablemos</h2>
+          <p>
+            Podés escribirnos para saber qué servicio se adapta mejor a tu situación.
+            Te orientamos sin compromiso.
+          </p>
+          <div class="cta-actions">
+            <a href={`${base}/#contacto`} class="btn-cta">Contactarnos</a>
+            <a href={`${base}/`} class="btn-back">Volver al inicio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</MainLayout>
+
+<style>
+  /* ─── Page hero ──────────────────────────────────────── */
+  .page-hero {
+    padding-bottom: 3rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    margin-bottom: 1rem;
+  }
+
+  .page-hero-description {
+    max-width: 58ch;
+    color: var(--color-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ─── Service items ──────────────────────────────────── */
+  .services-detail {
+    padding-top: 0;
+  }
+
+  .service-item {
+    display: grid;
+    gap: 2rem;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 2rem;
+  }
+
+  .service-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-item-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .service-accent-bar {
+    width: 0.4rem;
+    height: 2.4rem;
+    border-radius: 999px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .service-item-header h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin: 0;
+  }
+
+  .service-item-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .service-lead {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-for-whom {
+    background: rgba(86, 47, 115, 0.04);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+  }
+
+  .for-whom-label {
+    font-family: var(--font-accent);
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    letter-spacing: 0.04em;
+    margin: 0 0 1rem;
+  }
+
+  .service-for-whom ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .service-for-whom li {
+    padding-left: 1.4rem;
+    position: relative;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .service-for-whom li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* ─── CTA ────────────────────────────────────────────── */
+  .cta-card {
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .cta-card h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta-card p {
+    max-width: 50ch;
+    margin: 0 auto 2rem;
+    color: var(--color-muted);
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 2rem;
+    border-radius: 999px;
+    background: var(--color-text);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 2rem;
+    border-radius: 999px;
+    background: white;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-back:hover {
+    transform: translateY(-2px);
+  }
+
+  /* ─── Responsive ─────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .service-item-body {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .service-item {
+      padding: 1.5rem;
+    }
+  }
+</style>
