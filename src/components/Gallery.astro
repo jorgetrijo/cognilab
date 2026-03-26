@@ -1,5 +1,6 @@
 ---
 import { gallery } from '../data/site';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section" id="espacio">
@@ -11,7 +12,7 @@ import { gallery } from '../data/site';
 
     <div class="gallery-grid">
       {gallery.map((image, index) => (
-        <img src={image} alt={`Foto del centro ${index + 1}`} loading="lazy" />
+        <img src={`${base}${image}`} alt={`Foto del centro ${index + 1}`} loading="lazy" />
       ))}
     </div>
   </div>

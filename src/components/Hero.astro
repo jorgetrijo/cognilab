@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../data/site';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section id="inicio" class="hero section">
@@ -17,7 +18,7 @@ import { siteConfig } from '../data/site';
     </div>
 
     <div class="hero-card">
-      <img src="cognilab/images/hero-espacio.jpg" alt="Espacio del centro" />
+      <img src={`${base}/images/hero-espacio.jpg`} alt="Espacio del centro" />
     </div>
   </div>
 </section>

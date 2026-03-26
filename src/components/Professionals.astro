@@ -1,5 +1,6 @@
 ---
 import { professionals } from '../data/site';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section section--alt" id="profesionales">
@@ -17,7 +18,7 @@ import { professionals } from '../data/site';
       {professionals.map((professional) => (
         <article class="profile-card">
           <div class="profile-image-wrap">
-            <img src={professional.image} alt={professional.name} loading="lazy" />
+            <img src={`${base}${professional.image}`} alt={professional.name} loading="lazy" />
           </div>
 
           <div class="profile-content">

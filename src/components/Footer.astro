@@ -1,11 +1,12 @@
 ---
 import { siteConfig } from '../data/site';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <img class="footer-logo" src="cognilab/logos/logo.svg" alt={siteConfig.name} />
+      <img class="footer-logo" src={`${base}/logos/logo.svg`} alt={siteConfig.name} />
       <p>{siteConfig.description}</p>
     </div>
 

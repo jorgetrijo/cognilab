@@ -16,17 +16,41 @@ export const services = [
   {
     title: 'Psicología clínica',
     description:
-      'Acompañamiento terapéutico para niños, adolescentes y adultos, con una mirada cercana, respetuosa e integral.'
+      'Acompañamiento terapéutico para niños, adolescentes y adultos, con una mirada cercana, respetuosa e integral.',
+    details:
+      'Ofrecemos un espacio confidencial y de escucha activa donde cada persona puede explorar sus emociones, pensamientos y vínculos. Trabajamos desde un enfoque integrador, adaptando el proceso terapéutico a la historia y necesidades de cada consultante. El objetivo es acompañar el autoconocimiento, el bienestar emocional y el desarrollo de recursos personales.',
+    forWhom: [
+      'Niños con dificultades emocionales o conductuales',
+      'Adolescentes en procesos de cambio e identidad',
+      'Adultos que atraviesan crisis, duelos o malestar emocional',
+      'Personas que buscan un espacio de crecimiento personal'
+    ]
   },
   {
     title: 'Psicopedagogía',
     description:
-      'Evaluación y acompañamiento de procesos de aprendizaje, con estrategias personalizadas según cada necesidad.'
+      'Evaluación y acompañamiento de procesos de aprendizaje, con estrategias personalizadas según cada necesidad.',
+    details:
+      'Realizamos evaluaciones psicopedagógicas para identificar el perfil de aprendizaje de cada niño o adolescente, detectar posibles dificultades y diseñar estrategias de intervención. Trabajamos en coordinación con la escuela y la familia para acompañar el proceso educativo de forma integral y sostenida.',
+    forWhom: [
+      'Niños con dificultades en lectura, escritura o matemática',
+      'Estudiantes con diagnóstico de DEA, TDAH u otras condiciones',
+      'Adolescentes con bajo rendimiento escolar sin causa aparente',
+      'Familias que buscan orientación sobre el proceso de aprendizaje'
+    ]
   },
   {
     title: 'Orientación a familias',
     description:
-      'Espacios de escucha y orientación para acompañar el desarrollo y fortalecer el trabajo conjunto con cada familia.'
+      'Espacios de escucha y orientación para acompañar el desarrollo y fortalecer el trabajo conjunto con cada familia.',
+    details:
+      'Brindamos un espacio de orientación y acompañamiento a padres, madres y cuidadores que necesitan herramientas para acompañar a sus hijos en distintas etapas del desarrollo. Trabajamos sobre la comunicación, los vínculos y las estrategias de crianza, promoviendo una mirada respetuosa y colaborativa.',
+    forWhom: [
+      'Padres con dudas sobre el desarrollo de sus hijos',
+      'Familias que atraviesan cambios o situaciones de conflicto',
+      'Cuidadores que acompañan niños con necesidades especiales',
+      'Familias que desean fortalecer sus vínculos y comunicación'
+    ]
   }
 ];
 
