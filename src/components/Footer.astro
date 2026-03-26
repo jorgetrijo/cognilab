@@ -5,7 +5,7 @@ import { siteConfig } from '../data/site';
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <img class="footer-logo" src="/logos/logo-icon.png" alt={siteConfig.name} />
+      <img class="footer-logo" src="cognilab/logos/logo.svg" alt={siteConfig.name} />
       <p>{siteConfig.description}</p>
     </div>
 
@@ -25,3 +25,38 @@ import { siteConfig } from '../data/site';
     </div>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    padding: 3rem 0;
+    border-top: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.45);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .footer-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+  }
+
+  .footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

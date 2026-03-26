@@ -19,3 +19,30 @@ import { services } from '../data/site';
     </div>
   </div>
 </section>
+
+<style>
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    padding: 1.5rem;
+  }
+
+  .card:nth-child(1) { border-top: 0.45rem solid var(--color-primary); }
+  .card:nth-child(2) { border-top: 0.45rem solid var(--color-secondary-strong); }
+  .card:nth-child(3) { border-top: 0.45rem solid var(--color-green); }
+
+  @media (max-width: 900px) {
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -33,7 +33,106 @@ import { siteConfig } from '../data/site';
         Mensaje
         <textarea name="mensaje" rows="5" placeholder="Contanos tu consulta"></textarea>
       </label>
-      <button class="button" type="submit">Enviar consulta</button>
+      <button class="btn btn-primary" type="submit">Enviar consulta</button>
     </form>
   </div>
 </section>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .contact-card {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    padding: 1.5rem;
+  }
+
+  .contact-card label {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    background: #fff;
+    font: inherit;
+  }
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 999px;
+    padding: 0.95rem 1.4rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-strong));
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .button--ghost {
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .button--sm {
+    padding: 0.7rem 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+    .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.9rem 1.3rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-primary {
+    background: var(--color-text);
+    color: white;
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
+  }
+</style>

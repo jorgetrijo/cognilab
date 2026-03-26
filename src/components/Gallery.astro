@@ -16,3 +16,25 @@ import { gallery } from '../data/site';
     </div>
   </div>
 </section>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .gallery-grid img {
+    border-radius: var(--radius-md);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 5px solid rgba(255,255,255,0.8);
+    box-shadow: var(--shadow-soft);
+  }
+
+  @media (max-width: 900px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
