@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: 'CogniLab',
-  tagline: 'Psicología y psicopedagogía',
+  tagline: 'Psicología y psicopedagogía para niños, adolescentes y familias',
   description:
-    'Un espacio cálido y profesional para acompañar procesos de aprendizaje, bienestar emocional y desarrollo integral.',
+    '¿Tu hijo tiene dificultades en la escuela, cambios de humor o tu familia está atravesando un momento difícil? Estamos acá para acompañarlos con calidez y profesionalismo.',
   phone: '+54 9 11 6207-3575',
   whatsapp: '5491162073575',
   email: 'contacto@cognilab.com',
@@ -16,7 +16,7 @@ export const services = [
   {
     title: 'Psicología clínica',
     description:
-      'Acompañamiento terapéutico para niños, adolescentes y adultos, con una mirada cercana, respetuosa e integral.',
+      '¿Tu hijo tiene cambios de humor, miedos o dificultades para relacionarse? Ofrecemos un espacio seguro y confidencial para acompañarlo.',
     details:
       'Ofrecemos un espacio confidencial y de escucha activa donde cada persona puede explorar sus emociones, pensamientos y vínculos. Trabajamos desde un enfoque integrador, adaptando el proceso terapéutico a la historia y necesidades de cada consultante. El objetivo es acompañar el autoconocimiento, el bienestar emocional y el desarrollo de recursos personales.',
     forWhom: [
@@ -29,7 +29,7 @@ export const services = [
   {
     title: 'Psicopedagogía',
     description:
-      'Evaluación y acompañamiento de procesos de aprendizaje, con estrategias personalizadas según cada necesidad.',
+      '¿Le cuesta leer, escribir o rendir en la escuela sin razón aparente? Identificamos qué está pasando y trabajamos junto a la familia y el colegio.',
     details:
       'Realizamos evaluaciones psicopedagógicas para identificar el perfil de aprendizaje de cada niño o adolescente, detectar posibles dificultades y diseñar estrategias de intervención. Trabajamos en coordinación con la escuela y la familia para acompañar el proceso educativo de forma integral y sostenida.',
     forWhom: [
@@ -42,7 +42,7 @@ export const services = [
   {
     title: 'Orientación a familias',
     description:
-      'Espacios de escucha y orientación para acompañar el desarrollo y fortalecer el trabajo conjunto con cada familia.',
+      '¿No sabés cómo acompañar a tu hijo o sentís que la comunicación en casa se complica? Te damos herramientas concretas para cada etapa.',
     details:
       'Brindamos un espacio de orientación y acompañamiento a padres, madres y cuidadores que necesitan herramientas para acompañar a sus hijos en distintas etapas del desarrollo. Trabajamos sobre la comunicación, los vínculos y las estrategias de crianza, promoviendo una mirada respetuosa y colaborativa.',
     forWhom: [

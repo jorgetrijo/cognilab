@@ -1,12 +1,13 @@
 ---
 import { services } from '../data/site';
+import Eyebrow from './Eyebrow.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section" id="servicios">
   <div class="container">
     <div class="section-heading">
-      <p class="eyebrow">Servicios</p>
+      <Eyebrow label="Servicios" />
       <h2>Acompañamiento profesional según cada necesidad</h2>
     </div>
 
@@ -43,7 +44,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   .card:nth-child(1) { border-top: 0.45rem solid var(--color-primary); }
   .card:nth-child(2) { border-top: 0.45rem solid var(--color-secondary-strong); }
-  .card:nth-child(3) { border-top: 0.45rem solid var(--color-green); }
+  .card:nth-child(3) { border-top: 0.45rem solid var(--color-purple); }
 
   .services-footer {
     margin-top: 2.5rem;
@@ -56,7 +57,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     gap: 0.5rem;
     padding: 0.9rem 2rem;
     border-radius: 999px;
-    background: var(--color-text);
+    background: var(--color-primary);
     color: white;
     font-weight: 700;
     font-size: 1rem;

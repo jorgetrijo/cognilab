@@ -1,11 +1,12 @@
 ---
 import { faqs } from '../data/site';
+import Eyebrow from './Eyebrow.astro';
 ---
 
 <section class="section section--alt" id="preguntas">
   <div class="container narrow">
     <div class="section-heading">
-      <p class="eyebrow">Preguntas frecuentes</p>
+      <Eyebrow label="Preguntas frecuentes" />
       <h2>Información útil antes de contactarnos</h2>
     </div>
 
@@ -37,5 +38,10 @@ import { faqs } from '../data/site';
     cursor: pointer;
     font-weight: 800;
     font-family: var(--font-heading);
+    transition: color 0.2s ease;
+  }
+
+  .faq-item[open] summary {
+    color: var(--color-primary);
   }
 </style>

@@ -1,12 +1,13 @@
 ---
 import { gallery } from '../data/site';
+import Eyebrow from './Eyebrow.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section" id="espacio">
   <div class="container">
     <div class="section-heading">
-      <p class="eyebrow">El espacio</p>
+      <Eyebrow label="El espacio" />
       <h2>Un entorno cálido, sereno y pensado para acompañar</h2>
     </div>
 
