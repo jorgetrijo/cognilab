@@ -1,11 +1,12 @@
 ---
 import { siteConfig } from '../data/site';
+import Eyebrow from './Eyebrow.astro';
 ---
 
 <section class="section" id="contacto">
   <div class="container contact-grid">
     <div>
-      <p class="eyebrow">Contacto</p>
+      <Eyebrow label="Contacto" />
       <h2>Estamos para orientarte</h2>
       <p>
         Podés escribirnos para consultas, disponibilidad de turnos o más información sobre el centro.
@@ -126,13 +127,20 @@ import { siteConfig } from '../data/site';
   }
 
   .btn-primary {
-    background: var(--color-text);
+    background: var(--color-primary);
     color: white;
   }
 
   .btn-secondary {
     background: white;
-    color: var(--color-text);
-    border: 2px solid var(--color-text);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(17, 196, 161, 0.15);
   }
 </style>

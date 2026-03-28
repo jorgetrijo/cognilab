@@ -1,28 +1,43 @@
 /* ─── Variables ──────────────────────────────────────────── */
 :root {
-  --color-bg: #fcf2e3;
-  --color-surface: #ffffff;
-  --color-surface-alt: #f8ecdf;
-  --color-text: #562f73;
-  --color-muted: #786d82;
-  --color-primary: #d02f27;
-  --color-primary-strong: #e25926;
-  --color-secondary: #63bfe2;
-  --color-secondary-strong: #149dd4;
-  --color-accent: #fdce04;
-  --color-green: #3cbfa2;
-  --color-purple: #897ebb;
-  --color-pink: #f17099;
-  --color-border: rgba(86, 47, 115, 0.12);
-  --shadow-soft: 0 18px 48px rgba(86, 47, 115, 0.12);
+  /* Fondos — crema cálida derivada del logo */
+  --color-bg:          #faf6f1;
+  --color-surface:     #ffffff;
+  --color-surface-alt: #f3ede6;
+
+  /* Texto — violeta del logo oscurecido para legibilidad */
+  --color-text:  #3d2d7a;
+  --color-muted: #7068a0;
+
+  /* Primario — teal exacto del logo (bloque "n") */
+  --color-primary:        #11c4a1;
+  --color-primary-strong: #0aaa8a;
+
+  /* Secundario — azules exactos del logo (bloques "i" y "L") */
+  --color-secondary:        #60bfe2;
+  --color-secondary-strong: #009dd4;
+
+  /* Paleta completa del logo */
+  --color-accent:  #fece00;
+  --color-orange:  #ed6e40;
+  --color-red:     #d03022;
+  --color-green:   #11c4a1;
+  --color-purple:  #907fe4;
+  --color-pink:    #f4729b;
+
+  /* UI */
+  --color-border: rgba(61, 45, 122, 0.1);
+  --shadow-soft:  0 18px 48px rgba(61, 45, 122, 0.1);
   --radius-xl: 30px;
   --radius-lg: 24px;
   --radius-md: 18px;
   --container: 1120px;
+
+  /* Tipografía */
   --font-heading: 'Fredoka', sans-serif;
-  --font-body: 'Nunito', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
   --font-display: 'Agbalumo', system-ui;
-  --font-accent: 'Tilt Neon', sans-serif;
+  --font-accent:  'Tilt Neon', sans-serif;
 }
 
 /* ─── Reset ──────────────────────────────────────────────── */
@@ -35,8 +50,8 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   background:
-    radial-gradient(circle at top left, rgba(99, 191, 226, 0.18), transparent 24%),
-    radial-gradient(circle at top right, rgba(241, 112, 153, 0.18), transparent 24%),
+    radial-gradient(circle at top left,  rgba(17, 196, 161, 0.1), transparent 28%),
+    radial-gradient(circle at top right, rgba(144, 127, 228, 0.1), transparent 28%),
     var(--color-bg);
   line-height: 1.6;
 }
@@ -103,14 +118,6 @@ img {
   margin-bottom: 0.75rem;
 }
 
-.eyebrow::before {
-  content: '';
-  width: 0.9rem;
-  height: 0.9rem;
-  border-radius: 4px;
-  background: var(--color-accent);
-  box-shadow: 0.35rem 0.35rem 0 0 var(--color-secondary);
-}
 
 /* ─── Typography ─────────────────────────────────────────── */
 h1,

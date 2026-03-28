@@ -1,12 +1,13 @@
 ---
 import { professionals } from '../data/site';
+import Eyebrow from './Eyebrow.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section section--alt" id="profesionales">
   <div class="container">
     <div class="section-heading section-heading--center">
-      <p class="eyebrow">Equipo</p>
+      <Eyebrow label="Equipo" />
       <h2>Profesionales del centro</h2>
       <p class="section-description">
         Un equipo interdisciplinario que acompaña cada proceso con cercanía,

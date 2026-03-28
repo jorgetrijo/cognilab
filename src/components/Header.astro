@@ -2,11 +2,13 @@
 import { siteConfig } from '../data/site';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentPath = Astro.url.pathname.replace(base, '') || '/';
+
 const navItems = [
-  { href: `${base}/#inicio`, label: 'Inicio' },
-  { href: `${base}/servicios`, label: 'Servicios' },
+  { href: `${base}/#inicio`,        label: 'Inicio',         activePath: '/' },
+  { href: `${base}/servicios`,      label: 'Servicios',      activePath: '/servicios' },
   { href: `${base}/#profesionales`, label: 'Nuestro equipo' },
-  { href: `${base}/#contacto`, label: 'Contactanos' }
+  { href: `${base}/#contacto`,      label: 'Contactanos',    cta: true }
 ];
 ---
 
@@ -19,7 +21,18 @@ const navItems = [
     <nav class="desktop-nav" aria-label="Navegación principal">
       <ul class="nav-list">
         {navItems.map((item) => (
-          <li><a href={item.href}>{item.label}</a></li>
+          <li>
+            <a
+              href={item.href}
+              class:list={[{
+                'nav-cta': item.cta,
+                'is-active': !!item.activePath && currentPath === item.activePath
+              }]}
+              aria-current={item.activePath && currentPath === item.activePath ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
         ))}
       </ul>
     </nav>
@@ -73,7 +86,15 @@ const navItems = [
     <nav class="mobile-nav" aria-label="Navegación mobile">
       <ul class="mobile-nav-list">
         {navItems.map((item) => (
-          <li><a href={item.href}>{item.label}</a></li>
+          <li>
+            <a
+              href={item.href}
+              class:list={[{ 'is-active': !!item.activePath && currentPath === item.activePath }]}
+              aria-current={item.activePath && currentPath === item.activePath ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
         ))}
       </ul>
 
@@ -135,7 +156,7 @@ const navItems = [
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(252, 242, 227, 0.9);
+    background: rgba(250, 246, 241, 0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(86, 47, 115, 0.08);
   }
@@ -156,7 +177,8 @@ const navItems = [
     width: 180px;
     max-width: 100%;
     object-fit: contain;
-    height: 100px;
+    height: 80px;
+    padding: 10px 0px 10px 0px;
   }
 
   .nav-list {
@@ -191,6 +213,28 @@ const navItems = [
 
   .nav-list a:hover::after,
   .nav-list a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .nav-list a.nav-cta {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav-list a.nav-cta:hover {
+    background: var(--color-primary-strong);
+    transform: translateY(-1px);
+  }
+
+  .nav-list a.nav-cta::after {
+    display: none;
+  }
+
+  .nav-list a.is-active::after {
     transform: scaleX(1);
   }
 
@@ -330,7 +374,7 @@ const navItems = [
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.28s ease;
-      background: rgba(252, 242, 227, 0.98);
+      background: rgba(250, 246, 241, 0.98);
       border-top: 1px solid rgba(86, 47, 115, 0.08);
     }
 
@@ -354,6 +398,11 @@ const navItems = [
       font-weight: 500;
       color: var(--color-text);
       border-bottom: 1px solid rgba(86, 47, 115, 0.08);
+    }
+
+    .mobile-nav-list a.is-active {
+      color: var(--color-primary);
+      font-weight: 700;
     }
 
     .mobile-social {

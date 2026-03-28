@@ -1,0 +1,21 @@
+---
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<p class="eyebrow">
+  <img src={`${base}/logos/favicon.svg`} alt="" aria-hidden="true" class="eyebrow-icon" />
+  {label}
+</p>
+
+<style>
+  .eyebrow-icon {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+</style>

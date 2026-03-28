@@ -3,6 +3,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { services, siteConfig } from '../data/site';
+import Eyebrow from '../components/Eyebrow.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const accentColors = [
@@ -21,7 +22,7 @@ const accentColors = [
   <main>
     <section class="page-hero section">
       <div class="container">
-        <p class="eyebrow">Servicios</p>
+        <Eyebrow label="Servicios" />
         <h1>Acompañamiento profesional<br />según cada necesidad</h1>
         <p class="page-hero-description">
           En CogniLab trabajamos desde un enfoque integrador, personalizado y cercano.
@@ -62,7 +63,7 @@ const accentColors = [
     <section class="cta-section section section--alt">
       <div class="container narrow">
         <div class="cta-card">
-          <p class="eyebrow">¿Tenés dudas?</p>
+          <Eyebrow label="¿Tenés dudas?" />
           <h2>Hablemos</h2>
           <p>
             Podés escribirnos para saber qué servicio se adapta mejor a tu situación.
