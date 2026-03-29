@@ -6,8 +6,8 @@
   --color-surface-alt: #f3ede6;
 
   /* Texto — violeta del logo oscurecido para legibilidad */
-  --color-text:  #3d2d7a;
-  --color-muted: #7068a0;
+  --color-text:  #660c9f;
+  --color-muted: #9b5fc0;
 
   /* Primario — teal exacto del logo (bloque "n") */
   --color-primary:        #11c4a1;
@@ -26,8 +26,8 @@
   --color-pink:    #f4729b;
 
   /* UI */
-  --color-border: rgba(61, 45, 122, 0.1);
-  --shadow-soft:  0 18px 48px rgba(61, 45, 122, 0.1);
+  --color-border: rgba(102, 12, 159, 0.1);
+  --shadow-soft:  0 18px 48px rgba(102, 12, 159, 0.1);
   --radius-xl: 30px;
   --radius-lg: 24px;
   --radius-md: 18px;
