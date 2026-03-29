@@ -1,6 +1,3 @@
 import { defineConfig } from 'astro/config';
 
-export default defineConfig({
-  site: 'https://jorgetrijo.github.io',
-  base: '/cognilab',
-});
+export default defineConfig({});
