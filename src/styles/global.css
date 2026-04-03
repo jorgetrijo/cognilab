@@ -1,43 +1,89 @@
-/* ─── Variables ──────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS — fuente única de verdad para todos los estilos
+   Para cambiar la estética del sitio, modificar solo este bloque.
+   ═══════════════════════════════════════════════════════════ */
 :root {
-  /* Fondos — crema cálida derivada del logo */
-  --color-bg:          #faf6f1;
-  --color-surface:     #ffffff;
-  --color-surface-alt: #f3ede6;
 
-  /* Texto — violeta del logo oscurecido para legibilidad */
-  --color-text:  #660c9f;
-  --color-muted: #9b5fc0;
+  /* ── 1. PALETA DEL LOGO ─────────────────────────────────
+     Colores exactos de cada bloque. 
+     ──────────────────────────────────────────────────────── */
+  --color-red:              #d03022;  /* "c" */
+  --color-orange:           #ed6e40;  /* "o" */
+  --color-accent:           #fece00;  /* "g" amarillo */
+  --color-green:            #11c4a1;  /* "n" teal */
+  --color-secondary:        #60bfe2;  /* "i" azul claro */
+  --color-secondary-strong: #009dd4;  /* "L" azul */
+  --color-purple:           #907fe4;  /* "a" */
+  --color-pink:             #f4729b;  /* "b" */
 
-  /* Primario — teal exacto del logo (bloque "n") */
+  /* ── 2. COLOR PRIMARIO ──────────────────────────────────
+     Controla botones principales, links activos y CTAs.
+     Cambiar aquí para modificar el color de acción del sitio.
+     ──────────────────────────────────────────────────────── */
   --color-primary:        #11c4a1;
   --color-primary-strong: #0aaa8a;
 
-  /* Secundario — azules exactos del logo (bloques "i" y "L") */
-  --color-secondary:        #60bfe2;
-  --color-secondary-strong: #009dd4;
+  /* ── 3. TEXTO ───────────────────────────────────────────
+     --color-text:  títulos, nav y texto principal
+     --color-muted: subtítulos, descripciones secundarias
+     ──────────────────────────────────────────────────────── */
+  --color-text:  #660c9f;
+  --color-muted: #9b5fc0;
 
-  /* Paleta completa del logo */
-  --color-accent:  #fece00;
-  --color-orange:  #ed6e40;
-  --color-red:     #d03022;
-  --color-green:   #11c4a1;
-  --color-purple:  #907fe4;
-  --color-pink:    #f4729b;
+  /* ── 4. FONDOS Y SUPERFICIES ────────────────────────────
+     --color-bg:           fondo general de la página
+     --color-surface:      blanco puro (formularios, inputs)
+     --color-surface-alt:  fondo alternativo entre secciones
+     --color-surface-card: tarjetas de contenido
+     --color-surface-badge: badges y chips pequeños
+     --color-surface-ui:   elementos de UI (botón hamburguesa)
+     --color-bg-header:    header sticky con transparencia
+     --color-bg-menu:      menú mobile con transparencia
+     ──────────────────────────────────────────────────────── */
+  --color-bg:           #faf6f1;
+  --color-surface:      #ffffff;
+  --color-surface-alt:  #f3ede6;
+  --color-surface-card:  rgba(255, 255, 255, 0.88);
+  --color-surface-badge: rgba(255, 255, 255, 0.72);
+  --color-surface-ui:    rgba(255, 255, 255, 0.95);
+  --color-bg-header:     rgba(250, 246, 241, 0.92);
+  --color-bg-menu:       rgba(250, 246, 241, 0.98);
 
-  /* UI */
-  --color-border: rgba(102, 12, 159, 0.1);
-  --shadow-soft:  0 18px 48px rgba(102, 12, 159, 0.1);
-  --radius-xl: 30px;
-  --radius-lg: 24px;
-  --radius-md: 18px;
-  --container: 1120px;
+  /* ── 5. BORDES Y SOMBRAS ────────────────────────────────
+     ──────────────────────────────────────────────────────── */
+  --color-border:        rgba(102, 12, 159, 0.10);
+  --color-border-subtle: rgba(102, 12, 159, 0.08);
+  --shadow-soft:         0 18px 48px rgba(102, 12, 159, 0.10);
+  --shadow-hover:        0 22px 54px rgba(102, 12, 159, 0.16);
 
-  /* Tipografía */
+  /* ── 6. ESTADOS INTERACTIVOS ────────────────────────────
+     ──────────────────────────────────────────────────────── */
+  --color-focus-ring:  rgba(17, 196, 161, 0.15);
+  --color-footer-tint: rgba(17, 196, 161, 0.05);
+  --color-error-bg:    rgba(208, 48, 34, 0.08);
+
+  /* ── 7. GRADIENTES ──────────────────────────────────────
+     ──────────────────────────────────────────────────────── */
+  --gradient-instagram: linear-gradient(135deg, var(--color-pink), var(--color-purple));
+  --gradient-rainbow: linear-gradient(90deg,
+    var(--color-red), var(--color-orange), var(--color-accent),
+    var(--color-primary), var(--color-secondary),
+    var(--color-purple), var(--color-pink)
+  );
+
+  /* ── 8. TIPOGRAFÍA ──────────────────────────────────────
+     ──────────────────────────────────────────────────────── */
   --font-heading: 'Fredoka', sans-serif;
   --font-body:    'DM Sans', sans-serif;
   --font-display: 'Agbalumo', system-ui;
   --font-accent:  'Tilt Neon', sans-serif;
+
+  /* ── 9. FORMA Y ESPACIADO ───────────────────────────────
+     ──────────────────────────────────────────────────────── */
+  --radius-xl:  30px;
+  --radius-lg:  24px;
+  --radius-md:  18px;
+  --container:  1120px;
 }
 
 /* ─── Reset ──────────────────────────────────────────────── */

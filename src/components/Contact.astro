@@ -33,11 +33,11 @@ import Eyebrow from './Eyebrow.astro';
         </label>
         <label>
           Teléfono
-          <input type="tel" name="telefono" placeholder="Ej: +54 11 1234-5678" required />
+          <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 11 1234-5678" pattern="[\+\d\s\-\(\)]{6,20}" title="Solo números, +, espacios o guiones" required />
         </label>
         <label>
           Mensaje
-          <textarea name="mensaje" rows="5" placeholder="Contanos tu consulta" required></textarea>
+          <textarea name="mensaje" rows="4" placeholder="Contanos tu consulta" required></textarea>
         </label>
         <button class="btn btn-primary" type="submit" id="submit-btn">
           Enviar consulta
@@ -64,6 +64,11 @@ import Eyebrow from './Eyebrow.astro';
 </section>
 
 <script is:inline>
+  const telefonoInput = document.getElementById('telefono');
+  telefonoInput.addEventListener('input', () => {
+    telefonoInput.value = telefonoInput.value.replace(/[^\d\+\s\-\(\)]/g, '');
+  });
+
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
   const successMsg = document.getElementById('success-msg');
@@ -109,7 +114,7 @@ import Eyebrow from './Eyebrow.astro';
   }
 
   .contact-card {
-    background: rgba(255, 255, 255, 0.88);
+    background: var(--color-surface-card);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-soft);
@@ -128,7 +133,7 @@ import Eyebrow from './Eyebrow.astro';
     padding: 0.9rem 1rem;
     border-radius: 16px;
     border: 1px solid var(--color-border);
-    background: #fff;
+    background: var(--color-surface);
     font: inherit;
   }
 
@@ -136,7 +141,7 @@ import Eyebrow from './Eyebrow.astro';
   textarea:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(17, 196, 161, 0.15);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
   }
 
   .contact-list {
@@ -221,7 +226,7 @@ import Eyebrow from './Eyebrow.astro';
     margin-top: 0.75rem;
     padding: 0.85rem 1rem;
     border-radius: 12px;
-    background: rgba(208, 48, 34, 0.08);
+    background: var(--color-error-bg);
     color: var(--color-red);
     font-size: 0.95rem;
     text-align: center;

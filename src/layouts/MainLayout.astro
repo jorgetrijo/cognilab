@@ -50,7 +50,7 @@ const {
         </svg>
       </a>
       <a
-        href={`https://wa.me/${siteConfig.whatsapp}?text=Hola%2C%20quiero%20pedir%20informaci%C3%B3n`}
+        href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
         class="fab fab--whatsapp"
         target="_blank"
         rel="noopener noreferrer"
@@ -102,7 +102,7 @@ const {
   }
 
   .fab--instagram {
-    background: linear-gradient(135deg, var(--color-pink), var(--color-purple));
+    background: var(--gradient-instagram);
   }
 
   .fab--whatsapp {

@@ -5,6 +5,7 @@ export const siteConfig = {
     '¿Tu hijo tiene dificultades en la escuela, cambios de humor o tu familia está atravesando un momento difícil? Estamos acá para acompañarlos con calidez y profesionalismo.',
   phone: '+54 9 11 6207-3575',
   whatsapp: '5491162073575',
+  whatsappMessage: 'Hola, quiero pedir información',
   email: 'contacto@cognilab.com',
   address: 'Calle Ejemplo 123, Ciudad',
   instagram: 'https://instagram.com/cognilab',

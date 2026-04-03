@@ -44,7 +44,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     position: relative;
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.92);
+    background: var(--color-surface-card);
     border: 1px solid var(--color-border);
     border-radius: 28px;
     box-shadow: var(--shadow-soft);
@@ -54,7 +54,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   .profile-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 22px 54px rgba(86, 47, 115, 0.16);
+    box-shadow: var(--shadow-hover);
   }
 
   .profile-image-wrap {
@@ -66,7 +66,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     aspect-ratio: 4 / 4.2;
     object-fit: cover;
     border-radius: 22px;
-    background: #fff;
+    background: var(--color-surface);
   }
 
   .profile-content {
@@ -82,7 +82,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     margin: 0;
     padding: 0.4rem 0.75rem;
     border-radius: 999px;
-    background: rgba(86, 47, 115, 0.08);
+    background: var(--color-border-subtle);
     color: var(--color-text);
     font-size: 0.92rem;
     font-weight: 800;
