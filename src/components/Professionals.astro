@@ -15,7 +15,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </p>
     </div>
 
-    <div class="profile-grid">
+    <div class="profile-grid" id="profile-carousel">
       {professionals.map((professional) => (
         <article class="profile-card">
           <div class="profile-image-wrap">
@@ -30,8 +30,41 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </article>
       ))}
     </div>
+
+    <div class="carousel-dots" id="carousel-dots" aria-hidden="true">
+      {professionals.map((_, i) => (
+        <button class:list={['dot', { 'dot--active': i === 0 }]} data-index={i} aria-label={`Ver profesional ${i + 1}`} />
+      ))}
+    </div>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    const grid = document.getElementById('profile-carousel');
+    const dotsContainer = document.getElementById('carousel-dots');
+    if (!grid || !dotsContainer) return;
+
+    const dots = dotsContainer.querySelectorAll('.dot');
+    const cards = grid.querySelectorAll('.profile-card');
+
+    function updateDots() {
+      const scrollLeft = grid.scrollLeft;
+      const cardWidth = cards[0]?.offsetWidth + 16; // gap
+      const index = Math.round(scrollLeft / cardWidth);
+      dots.forEach((d, i) => d.classList.toggle('dot--active', i === index));
+    }
+
+    grid.addEventListener('scroll', updateDots, { passive: true });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        const cardWidth = cards[0]?.offsetWidth + 16;
+        grid.scrollTo({ left: cardWidth * i, behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
 
 <style>
   .profile-grid {
@@ -102,14 +135,62 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     font-size: 1rem;
   }
 
+  /* ─── Dots ───────────────────────────────────────────── */
+  .carousel-dots {
+    display: none;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-border);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+  }
+
+  .dot--active {
+    background: var(--color-primary);
+    width: 1.4rem;
+    border-radius: 999px;
+  }
+
   /* ─── Responsive ─────────────────────────────────────── */
   @media (max-width: 900px) {
     .profile-grid {
-      grid-template-columns: 1fr;
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      gap: 1rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .profile-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .profile-card {
+      flex: 0 0 82%;
+      scroll-snap-align: center;
+    }
+
+    .carousel-dots {
+      display: flex;
     }
   }
 
   @media (max-width: 600px) {
+    .profile-card {
+      flex: 0 0 88%;
+    }
+
     .profile-image-wrap {
       padding: 0.9rem 0.9rem 0;
     }
