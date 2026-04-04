@@ -3,7 +3,6 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { services, siteConfig } from '../data/site';
-import Eyebrow from '../components/Eyebrow.astro';
 
 const accentColors = [
   'var(--color-primary)',
@@ -22,19 +21,9 @@ const accentColors = [
   <Header />
 
   <main>
-    <section class="page-hero section">
-      <div class="container">
-        <Eyebrow label="Servicios" />
-        <h1>Acompañamiento profesional<br />según cada necesidad</h1>
-        <p class="page-hero-description">
-          En CogniLab trabajamos desde un enfoque integrador, personalizado y cercano.
-          Conocé cada uno de nuestros servicios y encontrá el espacio que mejor se adapta a vos.
-        </p>
-      </div>
-    </section>
-
     <section class="services-detail section">
       <div class="container">
+        <h1 class="page-title">Servicios</h1>
         {services.map((service, i) => (
           <article id={service.slug} class="service-item" style={`--accent: ${accentColors[i % accentColors.length]}`}>
             <div class="service-item-header">
@@ -68,26 +57,17 @@ const accentColors = [
 </MainLayout>
 
 <style>
-  /* ─── Page hero ──────────────────────────────────────── */
-  .page-hero {
-    padding-bottom: 3rem;
-  }
-
-  .page-hero h1 {
+  /* ─── Título ─────────────────────────────────────────── */
+  .page-title {
     font-size: clamp(2.2rem, 4vw, 3.8rem);
-    margin-bottom: 1rem;
-  }
-
-  .page-hero-description {
-    max-width: 58ch;
-    color: var(--color-muted);
-    line-height: 1.7;
-    margin: 0;
+    color: var(--color-text);
+    margin: 0 0 2.5rem;
+    text-align: center;
   }
 
   /* ─── Service items ──────────────────────────────────── */
   .services-detail {
-    padding-top: 0;
+    padding-top: 2rem;
   }
 
   .service-item {
