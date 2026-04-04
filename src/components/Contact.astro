@@ -5,7 +5,7 @@ import Eyebrow from './Eyebrow.astro';
 
 <section class="section" id="contacto">
   <div class="container contact-grid">
-    <div>
+    <div class="contact-info">
       <Eyebrow label="Contactanos" />
       <h2>Dejanos tu consulta</h2>
       <p>
@@ -126,6 +126,13 @@ import Eyebrow from './Eyebrow.astro';
     grid-template-columns: 1.05fr 0.95fr;
     gap: 2rem;
     align-items: center;
+  }
+
+  .contact-info :global(.eyebrow) {
+    display: flex;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .contact-card {
