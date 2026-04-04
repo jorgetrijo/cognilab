@@ -1,0 +1,98 @@
+---
+import { services } from '../data/site';
+import Eyebrow from './Eyebrow.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <Eyebrow label="Servicios" />
+      <h2>¿Qué ofrecemos en CogniLab?</h2>
+    </div>
+    <div class="offer-grid">
+      {services.map((s) => (
+        <article class="offer-card">
+          <h3>{s.title}</h3>
+          <p>{s.description}</p>
+          <a href={`${base}/servicios#${s.slug}`} class="btn-info">+ info</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .offer-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-border);
+    border-top: 0.45rem solid var(--color-primary);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-soft);
+    padding: 1.5rem;
+  }
+
+  .offer-card:nth-child(2) { border-top-color: var(--color-secondary-strong); }
+  .offer-card:nth-child(3) { border-top-color: var(--color-purple); }
+  .offer-card:nth-child(4) { border-top-color: var(--color-pink); }
+  .offer-card:nth-child(5) { border-top-color: var(--color-orange); }
+  .offer-card:nth-child(6) { border-top-color: var(--color-secondary); }
+
+  .offer-card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.15rem;
+  }
+
+  .offer-card p {
+    margin: 0 0 1.25rem;
+    color: var(--color-muted);
+    line-height: 1.65;
+    font-size: 0.95rem;
+    flex: 1;
+  }
+
+  .btn-info {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .offer-card:nth-child(2) .btn-info { background: var(--color-secondary-strong); }
+  .offer-card:nth-child(3) .btn-info { background: var(--color-purple); }
+  .offer-card:nth-child(4) .btn-info { background: var(--color-pink); }
+  .offer-card:nth-child(5) .btn-info { background: var(--color-orange); }
+  .offer-card:nth-child(6) .btn-info { background: var(--color-secondary); }
+
+  .btn-info:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+  }
+
+  @media (max-width: 900px) {
+    .offer-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 600px) {
+    .offer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

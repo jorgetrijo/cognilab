@@ -6,18 +6,33 @@ import Eyebrow from './Eyebrow.astro';
 <section class="section" id="contacto">
   <div class="container contact-grid">
     <div>
-      <Eyebrow label="Contacto" />
-      <h2>Estamos para orientarte</h2>
+      <Eyebrow label="Contactanos" />
+      <h2>Dejanos tu consulta</h2>
       <p>
-        Podés escribirnos para consultas, disponibilidad de turnos o más información sobre el centro.
+        Podés escribirnos para consultas, disponibilidad de turnos o más información sobre nuestro equipo.
       </p>
 
       <ul class="contact-list">
-        <li><strong>WhatsApp:</strong> <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noreferrer">Enviar mensaje</a></li>
+        <li><strong>WhatsApp:</strong> <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noreferrer">{siteConfig.phone}</a></li>
         <li><strong>Correo:</strong> <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
-        <li><strong>Teléfono:</strong> <a href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a></li>
         <li><strong>Dirección:</strong> <a href={siteConfig.maps} target="_blank" rel="noreferrer">{siteConfig.address}</a></li>
       </ul>
+
+      <div class="map-wrapper">
+        <iframe
+          src="https://maps.google.com/maps?q=Av+Juramento+2017+Belgrano+Buenos+Aires&output=embed"
+          title="Ubicación en Google Maps"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <a
+          href={siteConfig.maps}
+          target="_blank"
+          rel="noreferrer"
+          class="map-overlay"
+          aria-label="Ver en Google Maps"
+        ></a>
+      </div>
     </div>
 
     <div class="contact-card">
@@ -147,9 +162,31 @@ import Eyebrow from './Eyebrow.astro';
   .contact-list {
     list-style: none;
     padding: 0;
-    margin: 1rem 0 0;
+    margin: 1rem 0 1.5rem;
     display: grid;
     gap: 0.75rem;
+  }
+
+  .map-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    height: 160px;
+  }
+
+  .map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .map-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: pointer;
   }
 
   .btn {

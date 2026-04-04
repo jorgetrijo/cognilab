@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname.replace(base, '') || '/';
 const navItems = [
   { href: `${base}/#inicio`,        label: 'Inicio',         activePath: '/' },
   { href: `${base}/servicios`,      label: 'Servicios',      activePath: '/servicios' },
-  { href: `${base}/#profesionales`, label: 'Nuestro equipo' },
+  { href: `${base}/equipo`,         label: 'Nuestro equipo', activePath: '/equipo' },
   { href: `${base}/#contacto`,      label: 'Contactanos',    cta: true }
 ];
 ---

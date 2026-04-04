@@ -5,11 +5,13 @@ import Footer from '../components/Footer.astro';
 import { services, siteConfig } from '../data/site';
 import Eyebrow from '../components/Eyebrow.astro';
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const accentColors = [
   'var(--color-primary)',
   'var(--color-secondary-strong)',
-  'var(--color-green)'
+  'var(--color-purple)',
+  'var(--color-pink)',
+  'var(--color-orange)',
+  'var(--color-secondary)'
 ];
 ---
 
@@ -34,7 +36,7 @@ const accentColors = [
     <section class="services-detail section">
       <div class="container">
         {services.map((service, i) => (
-          <article class="service-item" style={`--accent: ${accentColors[i % accentColors.length]}`}>
+          <article id={service.slug} class="service-item" style={`--accent: ${accentColors[i % accentColors.length]}`}>
             <div class="service-item-header">
               <div class="service-accent-bar"></div>
               <h2>{service.title}</h2>
@@ -60,22 +62,6 @@ const accentColors = [
       </div>
     </section>
 
-    <section class="cta-section section section--alt">
-      <div class="container narrow">
-        <div class="cta-card">
-          <Eyebrow label="¿Tenés dudas?" />
-          <h2>Hablemos</h2>
-          <p>
-            Podés escribirnos para saber qué servicio se adapta mejor a tu situación.
-            Te orientamos sin compromiso.
-          </p>
-          <div class="cta-actions">
-            <a href={`${base}/#contacto`} class="btn-cta">Contactarnos</a>
-            <a href={`${base}/`} class="btn-back">Volver al inicio</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <Footer />
@@ -107,6 +93,7 @@ const accentColors = [
   .service-item {
     display: grid;
     gap: 2rem;
+    scroll-margin-top: 100px;
     padding: 2.5rem;
     background: rgba(255, 255, 255, 0.88);
     border: 1px solid var(--color-border);
@@ -189,63 +176,6 @@ const accentColors = [
     height: 0.5rem;
     border-radius: 50%;
     background: var(--accent);
-  }
-
-  /* ─── CTA ────────────────────────────────────────────── */
-  .cta-card {
-    text-align: center;
-    padding: 3rem 2rem;
-  }
-
-  .cta-card h2 {
-    margin-bottom: 1rem;
-  }
-
-  .cta-card p {
-    max-width: 50ch;
-    margin: 0 auto 2rem;
-    color: var(--color-muted);
-  }
-
-  .cta-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-cta {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.9rem 2rem;
-    border-radius: 999px;
-    background: var(--color-text);
-    color: white;
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  .btn-cta:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-  }
-
-  .btn-back {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.9rem 2rem;
-    border-radius: 999px;
-    background: white;
-    color: var(--color-text);
-    border: 2px solid var(--color-border);
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-  }
-
-  .btn-back:hover {
-    transform: translateY(-2px);
   }
 
   /* ─── Responsive ─────────────────────────────────────── */

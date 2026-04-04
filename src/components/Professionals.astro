@@ -1,18 +1,12 @@
 ---
 import { professionals } from '../data/site';
-import Eyebrow from './Eyebrow.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section section--alt" id="profesionales">
   <div class="container">
     <div class="section-heading section-heading--center">
-      <Eyebrow label="Equipo" />
-      <h2>Profesionales del centro</h2>
-      <p class="section-description">
-        Un equipo interdisciplinario que acompaña cada proceso con cercanía,
-        compromiso y una mirada integral.
-      </p>
+      <h2 class="section-title">Nuestro equipo</h2>
     </div>
 
     <div class="profile-grid" id="profile-carousel">
@@ -67,6 +61,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 </script>
 
 <style>
+  .section-title {
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    color: var(--color-text);
+    margin: 0 0 2.5rem;
+  }
+
   .profile-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
