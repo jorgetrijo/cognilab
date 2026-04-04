@@ -11,13 +11,46 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <h2>Conocé nuestro espacio de trabajo</h2>
     </div>
 
-    <div class="gallery-grid">
+    <div class="gallery-grid" id="gallery-carousel">
       {gallery.map((image, index) => (
         <img src={`${base}${image}`} alt={`Foto del centro ${index + 1}`} loading="lazy" />
       ))}
     </div>
+
+    <div class="carousel-dots" id="gallery-dots" aria-hidden="true">
+      {gallery.map((_, i) => (
+        <button class:list={['dot', { 'dot--active': i === 0 }]} data-index={i} aria-label={`Ver foto ${i + 1}`} />
+      ))}
+    </div>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    const grid = document.getElementById('gallery-carousel');
+    const dotsContainer = document.getElementById('gallery-dots');
+    if (!grid || !dotsContainer) return;
+
+    const dots = dotsContainer.querySelectorAll('.dot');
+    const items = grid.querySelectorAll('img');
+
+    function updateDots() {
+      const scrollLeft = grid.scrollLeft;
+      const itemWidth = items[0]?.offsetWidth + 24; // gap
+      const index = Math.round(scrollLeft / itemWidth);
+      dots.forEach((d, i) => d.classList.toggle('dot--active', i === index));
+    }
+
+    grid.addEventListener('scroll', updateDots, { passive: true });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        const itemWidth = items[0]?.offsetWidth + 24;
+        grid.scrollTo({ left: itemWidth * i, behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
 
 <style>
   .gallery-grid {
@@ -34,9 +67,54 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     box-shadow: var(--shadow-soft);
   }
 
-  @media (max-width: 900px) {
+  /* ─── Dots ───────────────────────────────────────────── */
+  .carousel-dots {
+    display: none;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-border);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, width 0.2s ease;
+  }
+
+  .dot--active {
+    background: var(--color-primary);
+    width: 1.4rem;
+    border-radius: 999px;
+  }
+
+  /* ─── Responsive ─────────────────────────────────────── */
+  @media (max-width: 600px) {
     .gallery-grid {
-      grid-template-columns: 1fr;
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      gap: 1rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .gallery-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-grid img {
+      flex: 0 0 88%;
+      scroll-snap-align: center;
+    }
+
+    .carousel-dots {
+      display: flex;
     }
   }
 </style>
