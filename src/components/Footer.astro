@@ -4,60 +4,79 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <img class="footer-logo" src={`${base}/logos/logo.svg`} alt={siteConfig.name} />
-      <p>{siteConfig.description}</p>
-    </div>
+  <div class="container footer-inner">
+    <a class="footer-brand" href={`${base}/`} aria-label="Ir al inicio">
+      <img src={`${base}/logos/logo.svg`} alt={siteConfig.name} />
+    </a>
 
-    <div>
-      <h3>Contacto</h3>
-      <ul class="footer-list">
-        <li><a href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a></li>
-        <li><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
-        <li><a href={siteConfig.maps} target="_blank" rel="noreferrer">{siteConfig.address}</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h3>Horarios</h3>
-      <p>{siteConfig.hours}</p>
-      <a href={siteConfig.instagram} target="_blank" rel="noreferrer">Instagram</a>
-    </div>
+    <nav class="footer-links" aria-label="Contacto">
+      <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noreferrer">{siteConfig.phone}</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href={siteConfig.maps} target="_blank" rel="noreferrer">Belgrano, CABA</a>
+    </nav>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    padding: 3rem 0;
+    padding: 2rem 0;
     border-top: 1px solid var(--color-border);
     background: var(--color-footer-tint);
   }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 2rem;
+  .footer-inner {
+    display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
   }
 
-  .footer-logo {
-    width: 70px;
-    height: 70px;
+  .footer-brand img {
+    width: 80px;
+    height: auto;
     object-fit: contain;
   }
 
-  .footer-list {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0;
-    display: grid;
+  .footer-links {
+    display: flex;
+    align-items: center;
     gap: 0.75rem;
+    flex-wrap: wrap;
   }
 
-  @media (max-width: 900px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
+  .footer-links a {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-text);
+  }
+
+  .sep {
+    color: var(--color-border);
+    font-size: 1.1rem;
+    user-select: none;
+  }
+
+  @media (max-width: 700px) {
+    .footer-inner {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-links {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .sep {
+      display: none;
     }
   }
 </style>
