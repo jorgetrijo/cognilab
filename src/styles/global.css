@@ -198,10 +198,7 @@ button {
 /* ─── Responsive section utilities ──────────────────────── */
 @media (max-width: 600px) {
   body {
-    background:
-      radial-gradient(circle at top left,  rgba(17, 196, 161, 0.06), transparent 18%),
-      radial-gradient(circle at top right, rgba(144, 127, 228, 0.06), transparent 18%),
-      var(--color-bg);
+    background: var(--color-bg);
   }
 
   .section-heading--center {
